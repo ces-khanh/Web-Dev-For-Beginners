@@ -1,57 +1,160 @@
-dragElement(document.getElementById('plant1'));
-dragElement(document.getElementById('plant2'));
-dragElement(document.getElementById('plant3'));
-dragElement(document.getElementById('plant4'));
-dragElement(document.getElementById('plant5'));
-dragElement(document.getElementById('plant6'));
-dragElement(document.getElementById('plant7'));
-dragElement(document.getElementById('plant8'));
-dragElement(document.getElementById('plant9'));
-dragElement(document.getElementById('plant10'));
-dragElement(document.getElementById('plant11'));
-dragElement(document.getElementById('plant12'));
-dragElement(document.getElementById('plant13'));
-dragElement(document.getElementById('plant14'));
+const plant1 = document.getElementById('plant1');
+const plant2 = document.getElementById('plant2');
+const plant3 = document.getElementById('plant3');
+const plant4 = document.getElementById('plant4');
+const plant5 = document.getElementById('plant5');
+const plant6 = document.getElementById('plant6');
+const plant7 = document.getElementById('plant7');
+const plant8 = document.getElementById('plant8');
+const plant9 = document.getElementById('plant9');
+const plant10 = document.getElementById('plant10');
+const plant11 = document.getElementById('plant11');
+const plant12 = document.getElementById('plant12');
+const plant13 = document.getElementById('plant13');
+const plant14 = document.getElementById('plant14');
+
+
+dragElement(plant1);
+dragElement(plant2);
+dragElement(plant3);
+dragElement(plant4);
+dragElement(plant5);
+dragElement(plant6);
+dragElement(plant7);
+dragElement(plant8);
+dragElement(plant9);
+dragElement(plant10);
+dragElement(plant11);
+dragElement(plant12);
+dragElement(plant13);
+dragElement(plant14);
+
+
 
 function dragElement(terrariumElement) {
-	//set 4 positions for positioning on the screen
+
 	let pos1 = 0,
 		pos2 = 0,
 		pos3 = 0,
 		pos4 = 0;
 	terrariumElement.onpointerdown = pointerDrag;
 
+
+
 	function pointerDrag(e) {
 		e.preventDefault();
-		console.log(e);
-		// get the initial mouse cursor position for pos3 and pos4
 		pos3 = e.clientX;
 		pos4 = e.clientY;
-		// when the mouse moves, start the drag
 		document.onpointermove = elementDrag;
-		// when the mouse is lifted, stop the drag
 		document.onpointerup = stopElementDrag;
 	}
 
 	function elementDrag(e) {
-		// calculate the new cursor position
-		// pos1 = where the Xmouse WAS - where it IS
 		pos1 = pos3 - e.clientX;
-		// pos2 = where the Ymouse WAS - where it IS
 		pos2 = pos4 - e.clientY;
-		//reset pos3 to current location of Xmouse
+
 		pos3 = e.clientX;
-		//reset pos4 to current location of Ymouse
 		pos4 = e.clientY;
-		console.log(pos1, pos2, pos3, pos4);
-		// set the element's new position:
 		terrariumElement.style.top = terrariumElement.offsetTop - pos2 + 'px';
 		terrariumElement.style.left = terrariumElement.offsetLeft - pos1 + 'px';
+
 	}
 
 	function stopElementDrag() {
-		// stop calculating when mouse is released
 		document.onpointerup = null;
 		document.onpointermove = null;
 	}
+
+
 }
+const number = [2];
+
+plant1.addEventListener('dblclick', () => {
+	const style = Math.max(...number) +1;
+	number.push(style)
+	plant1.style.zIndex = Math.max(...number);
+
+})
+
+
+plant2.addEventListener('dblclick', () => {
+	const style = Math.max(...number) +1;
+	number.push(style)
+	plant2.style.zIndex = Math.max(...number);
+	
+
+})
+plant3.addEventListener('dblclick', () => {
+	const style = Math.max(...number) +1;
+	number.push(style)
+	plant3.style.zIndex = Math.max(...number);
+	
+})
+plant4.addEventListener('dblclick', () => {
+	const style = Math.max(...number) +1;
+	number.push(style)
+	plant4.style.zIndex = Math.max(...number);
+	
+})
+plant5.addEventListener('dblclick', () => {
+	const style = Math.max(...number) +1;
+	number.push(style)
+	plant5.style.zIndex = Math.max(...number);
+	
+})
+plant6.addEventListener('dblclick', () => {
+	const style = Math.max(...number) +1;
+	number.push(style)
+	plant6.style.zIndex = Math.max(...number);
+	
+})
+plant7.addEventListener('dblclick', () => {
+	const style = Math.max(...number) +1;
+	number.push(style)
+	plant7.style.zIndex = Math.max(...number);
+	
+})
+plant8.addEventListener('dblclick', () => {
+	const style = Math.max(...number) +1;
+	number.push(style)
+	plant8.style.zIndex = Math.max(...number);
+	
+})
+plant9.addEventListener('dblclick', () => {
+	const style = Math.max(...number) +1;
+	number.push(style)
+	plant9.style.zIndex = Math.max(...number);
+	
+})
+plant10.addEventListener('dblclick', () => {
+	const style = Math.max(...number) +1;
+	number.push(style)
+	plant10.style.zIndex = Math.max(...number);
+	
+})
+plant11.addEventListener('dblclick', () => {
+	const style = Math.max(...number) +1;
+	number.push(style)
+	plant11.style.zIndex = Math.max(...number);
+	
+})
+plant12.addEventListener('dblclick', () => {
+	const style = Math.max(...number) +1;
+	number.push(style)
+	plant12.style.zIndex = Math.max(...number);
+	
+})
+plant13.addEventListener('dblclick', () => {
+	const style = Math.max(...number) +1;
+	number.push(style)
+	plant13.style.zIndex = Math.max(...number);
+	
+})
+plant14.addEventListener('dblclick', () => {
+	const style = Math.max(...number) +1;
+	number.push(style)
+	plant14.style.zIndex = Math.max(...number);
+	
+})
+
+
