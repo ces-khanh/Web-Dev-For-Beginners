@@ -6,19 +6,36 @@ const quotes = [
     'What one man can invent another can discover.',
     'Nothing clears up a case so much as stating it to another person.',
     'Education never ends, Watson. It is a series of lessons, with the greatest for the last.',
+
 ];
 // store the list of words and the index of the word the player is currently typing
 let words = [];
 let wordIndex = 0;
-// the starting time
 let startTime = Date.now();
+// the starting time
+
 // page elements
+const modal = document.getElementById("myModal");
+const btn = document.getElementById("btn");
+const span = document.getElementsByClassName("close")[0];
 const quoteElement = document.getElementById('quote');
 const messageElement = document.getElementById('message');
 const typedValueElement = document.getElementById('typed-value');
 let time;
 
+span.onclick = function () {
+    modal.style.display = "none";
+}
+window.onclick = function (event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
 document.getElementById('start').addEventListener('click', () => {
+
+    startTime = Date.now();
+    document.getElementById("typed-value").disabled = false;
     const quoteIndex = Math.floor(Math.random() * quotes.length);
     const quote = quotes[quoteIndex];
 
@@ -35,13 +52,15 @@ document.getElementById('start').addEventListener('click', () => {
 
     typedValueElement.value = '';
     typedValueElement.focus();
-    
 
-   
-    
-    
+
+
+
 
 })
+
+myStorage = window.localStorage;
+let times = [];
 
 typedValueElement.addEventListener('input', () => {
     const currentWord = words[wordIndex];
@@ -49,8 +68,20 @@ typedValueElement.addEventListener('input', () => {
 
     if ((typedValue == currentWord && wordIndex == words.length - 1)) {
         const elapsedTime = new Date().getTime() - startTime;
+        times.push(elapsedTime);
+        localStorage.setItem("time", times)
+        console.log(`localStorage ${localStorage.getItem("time")}`);
+        document.getElementById('topTime').innerHTML = Math.min(...times) / 1000
+
+        console.log(times);
+
         const message = `CONGRATULATIONS! You finished in ${elapsedTime / 1000} seconds.`;
         messageElement.innerText = message;
+        modal.style.display = "block";
+        //Disable the textbox when the player completes the quote
+        quoteElement.innerHTML = ' ';
+        //Disable the input event listener on completion, and re-enable it when the button is clicked 
+        document.getElementById("typed-value").disabled = true;
     } else if (typedValue.endsWith(' ') && typedValue.trim() == currentWord) {
         wordIndex++
         typedValueElement.value = '';

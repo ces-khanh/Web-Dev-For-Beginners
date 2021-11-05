@@ -14,10 +14,12 @@ function run() {
     
     //Số ngày còn lại
     var hours = Math.floor(timeRest % (1000 * 60 * 60 * 24) / (1000 * 60 * 60));
-    // Số giờ còn lại
+    // Số giờ còn lại 
     var minute = Math.floor(timeRest % (1000 * 60 * 60) / (1000 * 60));
+    console.log(`minute ${timeRest % (1000 * 60 * 60)}`);
     // Số phút còn lại
     var sec = Math.floor(timeRest % (1000 * 60) / (1000));
+    console.log(`seccond${timeRest % (1000 * 60)}`);
 
 
     p.innerHTML = day + ' DAY ' + hours + ' : ' + minute + ' : ' +sec+" ";
